@@ -3,7 +3,7 @@
 \alias{\%.\%}
 \title{Euclidean even product}
 \description{
-  Euclidean even product; dot product of two onions}
+  Euclidean even product; dot product of two onions
 }
 \usage{
 dotprod(x, y)

@@ -5,10 +5,10 @@
 Returns the conjugate of an onionic vector
 }
 \usage{
-\method{Conj}{onion}(x)
+\method{Conj}{onion}(z)
 }
 \arguments{
-  \item{x}{An onionic vector}
+  \item{z}{An onionic vector}
 }
 \details{
   The method is common to all onions: \code{Im(x) <- -Im(x)}

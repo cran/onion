@@ -3,7 +3,7 @@
 \alias{roct}
 \title{Random onionic vector}
 \description{
-  Returns a random onionic vector of arbitrary length}
+  Returns a random onionic vector of arbitrary length
 }
 \usage{
 roct(n, x=1:8, replace=TRUE, rand="sample", ...)

@@ -1,5 +1,7 @@
 \name{seq.onion}
 \alias{seq.onion}
+\alias{slerp}
+\alias{SLERP}
 \title{seq method for onions}
 \description{
   Rough equivalent of \code{seq()} for onions. 

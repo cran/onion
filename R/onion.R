@@ -352,13 +352,13 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
   y <- as.matrix(oct2)
   out <- x
   out[1,] = +x[1,]*y[1,] -x[2,]*y[2,] -x[3,]*y[3,] -x[4,]*y[4,] -x[5,]*y[5,] -x[6,]*y[6,] -x[7,]*y[7,] -x[8,]*y[8,]
-  out[2,] = +x[2,]*y[1,] +x[1,]*y[2,] +x[4,]*y[3,] -x[3,]*y[4,] -x[6,]*y[5,] +x[5,]*y[6,] -x[8,]*y[7,] +x[7,]*y[8,]
-  out[3,] = +x[3,]*y[1,] -x[4,]*y[2,] +x[1,]*y[3,] +x[2,]*y[4,] -x[7,]*y[5,] +x[8,]*y[6,] +x[5,]*y[7,] -x[6,]*y[8,]
-  out[4,] = +x[4,]*y[1,] +x[3,]*y[2,] -x[2,]*y[3,] +x[1,]*y[4,] -x[8,]*y[5,] -x[7,]*y[6,] +x[6,]*y[7,] +x[5,]*y[8,]
+  out[2,] = +x[2,]*y[1,] +x[1,]*y[2,] -x[4,]*y[3,] +x[3,]*y[4,] -x[6,]*y[5,] +x[5,]*y[6,] +x[8,]*y[7,] -x[7,]*y[8,]
+  out[3,] = +x[3,]*y[1,] +x[4,]*y[2,] +x[1,]*y[3,] -x[2,]*y[4,] -x[7,]*y[5,] -x[8,]*y[6,] +x[5,]*y[7,] +x[6,]*y[8,]
+  out[4,] = +x[4,]*y[1,] -x[3,]*y[2,] +x[2,]*y[3,] +x[1,]*y[4,] -x[8,]*y[5,] +x[7,]*y[6,] -x[6,]*y[7,] +x[5,]*y[8,]
   out[5,] = +x[5,]*y[1,] +x[6,]*y[2,] +x[7,]*y[3,] +x[8,]*y[4,] +x[1,]*y[5,] -x[2,]*y[6,] -x[3,]*y[7,] -x[4,]*y[8,]
-  out[6,] = +x[6,]*y[1,] -x[5,]*y[2,] -x[8,]*y[3,] +x[7,]*y[4,] +x[2,]*y[5,] +x[1,]*y[6,] -x[4,]*y[7,] +x[3,]*y[8,]
-  out[7,] = +x[7,]*y[1,] +x[8,]*y[2,] -x[5,]*y[3,] -x[6,]*y[4,] +x[3,]*y[5,] +x[4,]*y[6,] +x[1,]*y[7,] -x[2,]*y[8,]
-  out[8,] = +x[8,]*y[1,] -x[7,]*y[2,] +x[6,]*y[3,] -x[5,]*y[4,] +x[4,]*y[5,] -x[3,]*y[6,] +x[2,]*y[7,] +x[1,]*y[8,]
+  out[6,] = +x[6,]*y[1,] -x[5,]*y[2,] +x[8,]*y[3,] -x[7,]*y[4,] +x[2,]*y[5,] +x[1,]*y[6,] +x[4,]*y[7,] -x[3,]*y[8,]
+  out[7,] = +x[7,]*y[1,] -x[8,]*y[2,] -x[5,]*y[3,] +x[6,]*y[4,] +x[3,]*y[5,] -x[4,]*y[6,] +x[1,]*y[7,] +x[2,]*y[8,]
+  out[8,] = +x[8,]*y[1,] +x[7,]*y[2,] -x[6,]*y[3,] -x[5,]*y[4,] +x[4,]*y[5,] +x[3,]*y[6,] -x[2,]*y[7,] +x[1,]*y[8,]
   return(as.octonion(out))
 }
 
@@ -389,9 +389,9 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
   y <- as.matrix(quat2)
   out <- x
   out[1,] = +x[1,]*y[1,] -x[2,]*y[2,] -x[3,]*y[3,] -x[4,]*y[4,]
-  out[2,] = +x[2,]*y[1,] +x[1,]*y[2,] +x[4,]*y[3,] -x[3,]*y[4,]
-  out[3,] = +x[3,]*y[1,] -x[4,]*y[2,] +x[1,]*y[3,] +x[2,]*y[4,]
-  out[4,] = +x[4,]*y[1,] +x[3,]*y[2,] -x[2,]*y[3,] +x[1,]*y[4,]
+  out[2,] = +x[2,]*y[1,] +x[1,]*y[2,] -x[4,]*y[3,] +x[3,]*y[4,]
+  out[3,] = +x[3,]*y[1,] +x[4,]*y[2,] +x[1,]*y[3,] -x[2,]*y[4,]
+  out[4,] = +x[4,]*y[1,] -x[3,]*y[2,] +x[2,]*y[3,] +x[1,]*y[4,]
   return(as.quaternion(out))
 }
 
@@ -892,28 +892,29 @@ return(as.onion(out,type(x)))
   return(x)
 }
 
-"Conj.onion" <- function(x){
-  Im(x) <- -Im(x)
-  return(x)
+"Conj.onion" <- function(z){
+  Im(z) <- -Im(z)
+  return(z)
 }
 
-"Mod.onion" <- function(x){
-  return(sqrt(apply(as.matrix(x),2,function(u){sum(u^2)})))
+"Mod.onion" <- function(z){
+  return(sqrt(apply(as.matrix(z),2,function(u){sum(u^2)})))
 }
 
-"Mod<-" <- function(x, value){UseMethod("Mod<-")}
+"Mod<-" <- function(z, value){UseMethod("Mod<-")}
 
-"Mod<-.onion" <- function(x,value){
+"Mod<-.onion" <- function(z,value){
   if(is.octonion(value)|is.complex(value)){
     stop("RHS must be real")
     } else {
-      return(value*sign(x))
+      return(value*sign(z))
     }
 }
 
-"Norm" <- function(x){UseMethod("Norm")}
-"Norm.onion" <- function(x){
-  return(apply(x,2,function(x){sum(x^2)}))
+"Norm" <- function(z){UseMethod("Norm")}
+
+"Norm.onion" <- function(z){
+  return(apply(z,2,function(x){sum(x^2)}))
 }
 
 "sign.onion" <- function(x){x/Mod(x)}

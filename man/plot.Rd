@@ -2,7 +2,7 @@
 \alias{plot.onion}
 \title{Plot onions}
 \description{
-  Plotting method for onionic vectors}
+  Plotting method for onionic vectors
 }
 \usage{
 \method{plot}{onion}(x, ...)

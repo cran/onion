@@ -2,7 +2,7 @@
 \alias{cumsum.onion}
 \title{Cumulative sums for onions}
 \description{
-  Cumulative sum of an onionic vector}
+  Cumulative sum of an onionic vector
 }
 \usage{
 \method{cumsum}{onion}(x)

@@ -15,13 +15,13 @@
 Norm of an onionic vector: the  modulus and its square
 }
 \usage{
-\method{Norm}{onion}(x)
-\method{Mod}{onion}(x)
-\method{Mod}{onion}(x) <- value
+\method{Norm}{onion}(z)
+\method{Mod}{onion}(z)
+\method{Mod}{onion}(z) <- value
 \method{sign}{onion}(x)
 }
 \arguments{
-  \item{x}{Onionic vector}
+  \item{x,z}{Onionic vector}
   \item{value}{A real vector}
 }
 \author{Robin K. S. Hankin}

@@ -2,7 +2,7 @@
 \alias{t.onion}
 \title{Onion transpose}
 \description{
-  Takes the transpose of an onionic vector}
+  Takes the transpose of an onionic vector
 }
 \usage{
 \method{t}{onion}(x)
