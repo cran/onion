@@ -47,7 +47,8 @@
 \alias{k<-.quaternion}
 \alias{Im.default}
 \alias{Re.default}
-\alias{give.comp}
+\alias{get.comp}
+\alias{get.comp.onion}
 \alias{set.comp<-}
 \alias{set.comp<-.onion}
 \alias{set.comp<-.octonion}
@@ -83,14 +84,15 @@
 \method{i}{quaternion}(x) <- value
 \method{j}{quaternion}(x) <- value
 \method{k}{quaternion}(x) <- value
-give.comp(x,i)
+\method{get.comp}{onion}(x,i)
 \method{set.comp}{onion}(x,i) <- value
 }
 \arguments{
   \item{x}{An onionic vector}
   \item{value}{A real vector (or, in the case of \code{Im<-()} and
     \code{set.comp<-()}, an appropriately sized matrix)}
-  \item{i}{Integer between 1 and \eqn{2^n} where \eqn{n} depends on the
+  \item{i}{In functions \code{get.comp()} and \code{set.comp<-()}, an
+    integer between 1 and \eqn{2^n} where \eqn{n} depends on the
     type of onion}
   }
 \value{
@@ -107,6 +109,10 @@ All return an onion of the appropriate class.
   These functions are all specific to their algebra; there is no onionic
   generalization.  This is because the code is more structured.
   It also makes it easier to change the names of the bases.
+
+  Functions \code{get.comp()} and the various methods for
+  \code{set.comp<-()} are not really intended for the end-user. It is
+  better to use idioms such as \code{il(x)} and \code{i(x) <- 4}
   
   }
 \seealso{\code{\link{octonion}}}

@@ -61,9 +61,10 @@ type(x)
   Functions \code{quaternion()} and \code{octonion()} use standard
   recycling where possible; \code{rbind()} is used.
 
-  Functions \code{as.quaternion()} and \code{as.octonion()} take a
-  complex vector whose real and imaginary components are interpreted
-  as Re and i respectively.
+  Functions \code{as.quaternion()} and \code{as.octonion()} coerce to
+  quaternions and octonions respectively.  If given a complex vector,
+  the real and imaginary components are interpreted
+  as \code{Re} and \code{i} respectively.
     
   The output of \code{type()} is accepted as the \code{type} argument of
   function \code{as.onion()}; thus \code{as.onion(out,type=type(x))} works as

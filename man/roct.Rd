@@ -22,13 +22,12 @@ rquat(n, x=1:4, replace=TRUE, rand="sample", ...)
     (default), \dQuote{norm}, \dQuote{unif}, \dQuote{binom} and
     \dQuote{pois}.  Add an \dQuote{r} to get the name of the function
     used; thus \dQuote{unif} means to call \code{runif()}.}
-      
   \item{...}{Further arguments passed to the random number generator
- (such as \code{mean} and \code{sd}, which would be passed to
- \code{rnorm()})}
+    (such as \code{mean} and \code{sd}, which would be passed to
+    \code{rnorm()})}
 }
 \details{
-  Function \code{\rquat()} returns a quaternionic vector and function
+  Function \code{rquat()} returns a quaternionic vector and function
   \code{roct()} returns an octonionic vector.
 }
 

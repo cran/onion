@@ -36,8 +36,8 @@ Amassage(A, B)
 harmonize(A, B)
 }
 \arguments{
-  \item{e1,e2}{an object of class \code{"onion"}.}
-  \item{A,B}{object of class \code{"onion"}}
+  \item{e1,e2}{An object of class 'dQuote{\code{onion}}}
+  \item{A,B}{An object of class \dQuote{\code{onion}}}
   \item{oct1,oct2}{Octonionic vectors}
   \item{quat1,quat2}{Quaternionic vectors}
   \item{scalar}{Scalar vector}
@@ -47,15 +47,19 @@ harmonize(A, B)
     details section.}
 }
 \details{
-  The function \code{Ops.onion()} passes \dQuote{\code{*}} to function
+  The function \code{Ops.onion()} passes unary and binary arithmetic
+  operators (\dQuote{\code{+}}, \dQuote{\code{-}}, \dQuote{\code{*}}, and
+  \dQuote{\code{/}}) to the appropriate specialist function.
+
+  The most interesting operator is \dQuote{\code{*}}, which is passed to
   \code{AprodA()}.  This function is sensitive to the value of option
-  \code{use.R}.  If this is \code{FALSE}, then 
-  arguments are passed, via \code{Amassage()}, to either
-  \code{R_HprodH()} (for quaternions), or
+  \code{use.R}.  If this is \code{TRUE}, then arguments are passed, via
+  \code{Amassage()}, to either \code{R_HprodH()} (for quaternions), or
   \code{R_OprodO()} (for octonions).  If option \code{use.R} is
-  anything other than \code{FALSE} (including being unset, which is the
+  anything other than \code{TRUE} (including being unset, which is the
   default), the massaged arguments are passed to
-  \code{R_HprodH()} or \code{R_OprodO()}.
+  \code{HprodH()} or \code{OprodO()}.  This is what the user usually
+  wants: it is much faster than using the \code{R_} functions.
 
   The relative performance of, say, \code{OprodO()} vs
   \code{R_OprodO()}, will be system dependent but on my little Linux
@@ -64,8 +68,8 @@ harmonize(A, B)
   examples section for using \code{options()} to set argument \code{ur}.
 }
 \value{
-  Return an object of the appropriate (ie biggest) class as went in,
-  qua \code{harmonize()}.
+  An object of the appropriate (ie biggest) class as went in,
+  as per \code{harmonize()}.
 
   The only non obvious ones are \code{Amassage()}, which is used by the
   other functions to massage the two arguments into being the same
@@ -80,9 +84,9 @@ harmonize(A, B)
   user: use the ops as shown in the examples section.
 }
 \note{
-  The \dQuote{\code{A}} at the function means \strong{A}ny onion.  Thus
-  \code{Ainv()} takes quaternionic or octonionic arguments, but
-  \code{OprodO()} takes only octonions.
+  The \dQuote{\code{A}} at the beginning of a function name means
+  \strong{A}ny onion.  Thus \code{Ainv()} takes quaternionic or
+  octonionic arguments, but \code{OprodO()} takes only octonions.
   
 } 
 \examples{

@@ -5,12 +5,11 @@
   Replicate elements of onionic vectors
 }
 \usage{
-\method{rep}{onion}(x, times, ...)
+\method{rep}{onion}(x, ...)
 }
 \arguments{
   \item{x}{Onionic vector}
-  \item{times}{number of times to repeat \code{x}}
-  \item{...}{Further arguments passed to  \code{seq.defauilt()}}
+  \item{...}{Further arguments passed to \code{seq.default()}}
 }
 \author{Robin K. S. Hankin}
 \examples{

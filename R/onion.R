@@ -460,11 +460,11 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
     } else if (.Generic == "-") {
       return(Aneg(e1))
     } else {
-      stop("Unary operator '", .Generic, "' is not implemented for octonions")
+      stop("Unary operator '", .Generic, "' is not implemented for onions")
     }
   }
   if (!is.element(.Generic, c("+", "-", "*", "/", "^", "==", "!=")))
-    stop("operator '", .Generic, "' is not implemented for octonions")
+    stop("operator '", .Generic, "' is not implemented for onions")
   
   if (.Generic == "*") {
     if (lclass && rclass) {
@@ -594,7 +594,8 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
     if(single){
       stop("single cannot be TRUE with complex x")
     } else {
-      return(Recall(rbind(Re(x),Im(x),matrix(0,6,length(x)))),names=names)
+      browser()
+      return(Recall(rbind(Re(x),Im(x),matrix(0,6,length(x))),names=names))
     }
   }
   if(is.matrix(x)){
@@ -608,7 +609,7 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
       if(is.vector(x)){
         out <- as.matrix(x[1:8])
         if(length(x) != 8){
-          warning("single set to TRUE, but a vector of length !=8 supplied. Procastinate to length 8")
+          warning("single set to TRUE, but a vector of length !=8 supplied.  Setting to length 8, Procrustes-style")
         }
       } else {
         stop("single set to TRUE, but nonvector supplied.")
@@ -736,7 +737,8 @@ return(as.onion(out,type(x)))
   return(as.onion(x, type=tx,names=nx))
 }
 
-"give.comp" <- function(x,i){
+"get.comp" <- function(x,i){UseMethod("get.comp")}
+"get.comp.onion" <- function(x,i){
   as.matrix(x)[i,]
 }
 
@@ -781,15 +783,15 @@ return(as.onion(out,type(x)))
   } else {
     out <- as.matrix(x)
     out <- cbind(out,matrix(NA,nrow(out),value-ncol(out)))
-    return(as.onion(out),type=type(x))
+    return(as.onion(out,type=type(x)))
   }
 }
 
 "plot.onion" <- function(x, ...){plot(Re(x),Mod(Im(x)), ...)}
 
-"rep.onion" <- function(x, times,  ...){
+"rep.onion" <- function(x,  ...){
   u <- seq(length.out=length(x))
-  return(x[rep(u,times=times, ...)])
+  return(x[rep(u, ...)])
 }
     
 "Re<-" <- function(x, value){UseMethod("Re<-")}
@@ -838,7 +840,7 @@ return(as.onion(out,type(x)))
  "j<-.quaternion" <- function(x,value){"set.comp<-"(x,3,value)}
  "k<-.quaternion" <- function(x,value){"set.comp<-"(x,4,value)}
 "Im<-.quaternion" <- function(x,value){
-    nx <- names(x)
+  nx <- names(x)
   x <- as.matrix(x)
   if(isTRUE(all.equal(nrow(value), 3)) || isTRUE(all.equal(length(value),3))) {
     x[-1,] <- value
@@ -855,11 +857,10 @@ return(as.onion(out,type(x)))
   out <- as.quaternion(x)
   names(out) <- nx
   return(out)
-
 }
 
-"Re.default" <- get("Re",pos=NULL,mode="function")
-"Im.default" <- get("Im",pos=NULL,mode="function")
+"Re.default" <- get("Re",pos="package:base",mode="function")
+"Im.default" <- get("Im",pos="package:base",mode="function")
 
 "i"  <- function(x){UseMethod("i" )}
 "j"  <- function(x){UseMethod("j" )}
@@ -870,23 +871,23 @@ return(as.onion(out,type(x)))
 "kl" <- function(x){UseMethod("kl")}
 
 
-"Re.octonion" <- function(x){give.comp(x,1)}
- "i.octonion" <- function(x){give.comp(x,2)}
- "j.octonion" <- function(x){give.comp(x,3)}
- "k.octonion" <- function(x){give.comp(x,4)}
- "l.octonion" <- function(x){give.comp(x,5)}
-"il.octonion" <- function(x){give.comp(x,6)}
-"jl.octonion" <- function(x){give.comp(x,7)}
-"kl.octonion" <- function(x){give.comp(x,8)}
+"Re.octonion" <- function(x){get.comp(x,1)}
+ "i.octonion" <- function(x){get.comp(x,2)}
+ "j.octonion" <- function(x){get.comp(x,3)}
+ "k.octonion" <- function(x){get.comp(x,4)}
+ "l.octonion" <- function(x){get.comp(x,5)}
+"il.octonion" <- function(x){get.comp(x,6)}
+"jl.octonion" <- function(x){get.comp(x,7)}
+"kl.octonion" <- function(x){get.comp(x,8)}
 "Im.octonion" <- function(x){
   Re(x) <- 0
   return(x)
 }
 
-"Re.quaternion" <- function(x){give.comp(x,1)}
- "i.quaternion" <- function(x){give.comp(x,2)}
- "j.quaternion" <- function(x){give.comp(x,3)}
- "k.quaternion" <- function(x){give.comp(x,4)}
+"Re.quaternion" <- function(x){get.comp(x,1)}
+ "i.quaternion" <- function(x){get.comp(x,2)}
+ "j.quaternion" <- function(x){get.comp(x,3)}
+ "k.quaternion" <- function(x){get.comp(x,4)}
 "Im.quaternion" <- function(x){
   Re(x) <- 0
   return(x)

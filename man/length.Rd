@@ -18,6 +18,10 @@
 }
 \details{
   Operates on the columns of the matrix as expected.
+
+  In \code{length(x) <- value}, if \code{value>length(x)}, the onion is
+  padded with \code{NA}s.
+  
 }
 \author{Robin K. S. Hankin}
 \examples{
@@ -25,5 +29,8 @@ a <- roct(5)
 length(a)
 length(a) <- 3
 a
+length(a) <- 10
+a
+
 }
 \keyword{array}
