@@ -79,7 +79,7 @@ type(x)
   is pronouncable and a bona fide English word).
 
   Creating further onions is intended to be straightforward; the
-  following steps shows how to add the sedenions but any number of
+  following steps show how to add the sedenions but any number of
   onions may be added the same way.
   \itemize{
     \item Add functions \code{sedenion_prod_single()} and
@@ -100,6 +100,7 @@ type(x)
       \code{R_HprodH()})
       \item \code{sedenion()} and \code{is.sedenion()} (by analogy
       with \code{octonion()} and \code{is.octonion()})
+      \item \code{as.sedenion()} by analogy with \code{as.octonion()}.
       \item a whole bunch of functions (with appropriate names) to get
       and set individual onion components, by
       analogy with \code{i.quaternion()} and \code{i<-.quaternion()}.

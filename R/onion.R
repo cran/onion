@@ -213,7 +213,7 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
 
 "sqrt.onion" <- function(x){exp(log(x)/2)}
 
-"as.matrix.onion" <- function(x){
+"as.matrix.onion" <- function(x, ...){
   class(x) <- "matrix"
   NextMethod("as.matrix")
 }
@@ -594,7 +594,6 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
     if(single){
       stop("single cannot be TRUE with complex x")
     } else {
-      browser()
       return(Recall(rbind(Re(x),Im(x),matrix(0,6,length(x))),names=names))
     }
   }
@@ -644,7 +643,7 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
       if(is.vector(x)){
         out <- as.matrix(x[1:4])
         if(length(x) != 4){
-          warning("single set to TRUE, but a vector of length !=4 supplied. Procastinate to length 4")
+          warning("single set to TRUE, but a vector of length !=4 supplied. Set to length 4, Procrustes-style")
         }
       } else {
         stop("single set to TRUE, but nonvector supplied.")

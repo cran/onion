@@ -5,10 +5,11 @@
 Coerces an onionic vector into a matrix.
 }
 \usage{
-\method{as.matrix}{onion}(x)
+\method{as.matrix}{onion}(x, ...)
 }
 \arguments{
   \item{x}{Onionic vector}
+  \item{...}{Further arguments (currently ignored)}
 }
 \details{
   The matrix returned has 4 rows for a quaternion, 8 for an octonion
