@@ -21,29 +21,25 @@
 }
 \usage{
 Ops.onion(e1, e2)
-OprodO(oct1,oct2)
-HprodH(quat1,quat2)
-R_OprodO(oct1,oct2)
-R_HprodH(quat1,quat2)
-AprodA(A,B, ur=getOption("use.R"))
+OprodO(oct1, oct2)
+HprodH(quat1, quat2)
+R_OprodO(oct1, oct2)
+R_HprodH(quat1, quat2)
+AprodA(A, B, ur=getOption("use.R"))
 AsumA(A, B)
-Apower(A,B)
-AequalsA(A,B)
-AprodS(A,scalar)
+Apower(A, B)
+AequalsA(A, B)
+AprodS(A, scalar)
 Ainv(A)
 Aneg(A)
-Amassage(A,B)
-harmonize(A,B)
+Amassage(A, B)
+harmonize(A, B)
 }
 \arguments{
-  \item{e1}{an object of class \code{"onion"}.}
-  \item{e2}{an object of class \code{"onion"}.}
-  \item{A}{object of class \code{"onion"}}
-  \item{B}{object of class \code{"onion"}}
-  \item{oct1}{Octonionic vector}
-  \item{oct2}{Octonionic vector}
-  \item{quat1}{Quaternionic vector}
-  \item{quat2}{Quaternionic vector}
+  \item{e1,e2}{an object of class \code{"onion"}.}
+  \item{A,B}{object of class \code{"onion"}}
+  \item{oct1,oct2}{Octonionic vectors}
+  \item{quat1,quat2}{Quaternionic vectors}
   \item{scalar}{Scalar vector}
   \item{ur}{In function \code{AprodA()},  Boolean with default
     \code{FALSE} meaning to use the \code{c} implementation; and

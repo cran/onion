@@ -88,7 +88,5 @@ b <- roct(5)
 
 log(a*b) -log(a) -log(b)  #zero for real or imaginary a&b
 log(b*a) -log(a) -log(b)  #different (and still nonzero)
-
-
 }
 \keyword{array}

@@ -12,10 +12,10 @@ rquat(n, x=1:4, replace=TRUE, rand="sample", ...)
 \arguments{
   \item{n}{Length of onionic vector returned}
   \item{x}{Argument \code{x} as passed to \code{sample()};
-    Only matters if \code{jj} takes its default value of
+    Only matters if \code{rand} takes its default value of
     \dQuote{\code{sample}}.}
   \item{replace}{Argument \code{replace} as passed to \code{sample()};
-    Only matters if \code{jj} takes its default value of
+    Only matters if \code{rand} takes its default value of
     \dQuote{\code{sample}}.}
   \item{rand}{String, with name being that of the distribution
     intended.   Currently implemented values are \dQuote{sample}

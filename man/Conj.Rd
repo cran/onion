@@ -2,7 +2,7 @@
 \alias{Conj.onion}
 \title{Onionic conjugation}
 \description{
-Returns the octonionic conjugation of an octonionic vector
+Returns the conjugate of an onionic vector
 }
 \usage{
 \method{Conj}{onion}(x)
@@ -10,6 +10,9 @@ Returns the octonionic conjugation of an octonionic vector
 \arguments{
   \item{x}{An onionic vector}
 }
+\details{
+  The method is common to all onions: \code{Im(x) <- -Im(x)}
+  }
 \author{Robin K. S. Hankin}
 \examples{
 a <- roct(5)

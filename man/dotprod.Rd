@@ -10,8 +10,7 @@ dotprod(x, y)
 }
 
 \arguments{
-  \item{x}{Onionic vector}
-  \item{y}{Onionic vector}
+  \item{x,y}{Onionic vectors}
 }
 \details{
   Returns the Euclidean even product of two onionic vectors.  That is,

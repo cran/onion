@@ -13,9 +13,7 @@ commutator(x1, x2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x1}{onionic vector}
-  \item{x2}{onionic vector}
-  \item{x3}{ctonionic vector}
+  \item{x1,x2,x3}{onionic vectors}
 }
 \details{
   The threeform is defined as \code{Re(x1 * (Conj(x2) * x3) - x3
