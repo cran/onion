@@ -56,8 +56,8 @@
 \title{Octonion components}
 \description{Get or set each component of an onionic vector}
 \usage{
-\method{Re}{octonion}(x)
-\method{Im}{octonion}(x)
+\method{Re}{octonion}(z)
+\method{Im}{octonion}(z)
 \method{i}{octonion}(x)
 \method{j}{octonion}(x)
 \method{k}{octonion}(x)
@@ -74,8 +74,8 @@
 \method{il}{octonion}(x) <- value
 \method{jl}{octonion}(x) <- value
 \method{kl}{octonion}(x) <- value
-\method{Re}{quaternion}(x)
-\method{Im}{quaternion}(x)
+\method{Re}{quaternion}(z)
+\method{Im}{quaternion}(z)
 \method{i}{quaternion}(x)
 \method{j}{quaternion}(x)
 \method{k}{quaternion}(x)
@@ -88,15 +88,15 @@
 \method{set.comp}{onion}(x,i) <- value
 }
 \arguments{
-  \item{x}{An onionic vector}
+  \item{x,z}{An onionic vector}
   \item{value}{A real vector (or, in the case of \code{Im<-()} and
     \code{set.comp<-()}, an appropriately sized matrix)}
   \item{i}{In functions \code{get.comp()} and \code{set.comp<-()}, an
     integer between 1 and \eqn{2^n} where \eqn{n} depends on the
     type of onion}
-  }
+}
 \value{
-All return an onion of the appropriate class.
+  All return an onion of the appropriate class.
 }
 \author{Robin K. S. Hankin}
 \note{
@@ -113,8 +113,7 @@ All return an onion of the appropriate class.
   Functions \code{get.comp()} and the various methods for
   \code{set.comp<-()} are not really intended for the end-user. It is
   better to use idioms such as \code{il(x)} and \code{i(x) <- 4}
-  
-  }
+}
 \seealso{\code{\link{octonion}}}
 \examples{
 x <- octonion(Re=1,il=1:3,j=3:1)

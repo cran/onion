@@ -1,17 +1,13 @@
-\name{Extract.octonion}
+\name{Extract.onion}
 \alias{[.onion}
 \alias{[<-.onion}
 \title{Extract or Replace Parts of an onion}
 \description{
   Extract or replace subsets of onions.
 }
-\usage{
-x[i]
-x[i] <- value
-}
 \arguments{
   \item{x}{An onionic vector}
-  \item{i}{elements to extract or replace}
+  \item{index}{elements to extract or replace}
   \item{value}{replacement value}
 }
 \details{

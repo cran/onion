@@ -858,9 +858,10 @@ return(as.onion(out,type(x)))
   return(out)
 }
 
+if(FALSE){
 "Re.default" <- get("Re",pos="package:base",mode="function")
 "Im.default" <- get("Im",pos="package:base",mode="function")
-
+}
 "i"  <- function(x){UseMethod("i" )}
 "j"  <- function(x){UseMethod("j" )}
 "k"  <- function(x){UseMethod("k" )}
@@ -870,7 +871,7 @@ return(as.onion(out,type(x)))
 "kl" <- function(x){UseMethod("kl")}
 
 
-"Re.octonion" <- function(x){get.comp(x,1)}
+"Re.octonion" <- function(z){get.comp(z,1)}
  "i.octonion" <- function(x){get.comp(x,2)}
  "j.octonion" <- function(x){get.comp(x,3)}
  "k.octonion" <- function(x){get.comp(x,4)}
@@ -878,18 +879,18 @@ return(as.onion(out,type(x)))
 "il.octonion" <- function(x){get.comp(x,6)}
 "jl.octonion" <- function(x){get.comp(x,7)}
 "kl.octonion" <- function(x){get.comp(x,8)}
-"Im.octonion" <- function(x){
-  Re(x) <- 0
-  return(x)
+"Im.octonion" <- function(z){
+  Re(z) <- 0
+  return(z)
 }
 
-"Re.quaternion" <- function(x){get.comp(x,1)}
+"Re.quaternion" <- function(z){get.comp(z,1)}
  "i.quaternion" <- function(x){get.comp(x,2)}
  "j.quaternion" <- function(x){get.comp(x,3)}
  "k.quaternion" <- function(x){get.comp(x,4)}
-"Im.quaternion" <- function(x){
-  Re(x) <- 0
-  return(x)
+"Im.quaternion" <- function(z){
+  Re(z) <- 0
+  return(z)
 }
 
 "Conj.onion" <- function(z){

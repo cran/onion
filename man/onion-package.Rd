@@ -40,7 +40,7 @@ as.quaternion(1:10)  # quaternionic vector with zero imaginary components
 
 1:10 + Hj  # Simple nontrivial quaternion; note appropriate behaviour of '+'
 
-1:10 + Oil   # simple octonionic vector '(Oil' is one of the octonionic bases). 
+1:10 + Oil   # simple octonionic vector ('Oil' is one of the octonionic bases). 
 
 a <- rquat(5) 
 b <- rquat(5)  #Quaternionic vectors with random integer components
@@ -68,6 +68,4 @@ a <- as.octonion(c(7,8,3,3,7,1,3,3),single=TRUE)
 b <- as.octonion(c(8,4,2,8,3,7,3,7),single=TRUE)
 plot(exp(seq(from=a,to=b,len=50)))
 # Note operation of seq(), exp(), and plot()
-
-
 }
