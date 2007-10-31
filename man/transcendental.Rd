@@ -86,7 +86,7 @@ sin(x)^2 + cos(x)^2  #should be close to O1
 a <- rquat(5)
 b <- roct(5)
 
-log(a*b) -log(a) -log(b)  #zero for real or imaginary a&b
+log(a*b) -log(a) -log(b)  #zero for real or complex a & b, but not quaternions
 log(b*a) -log(a) -log(b)  #different (and still nonzero)
 }
 \keyword{array}

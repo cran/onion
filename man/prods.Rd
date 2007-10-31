@@ -49,14 +49,13 @@ x \%>.<\% y
   \code{e.odd()} for the Euclidean product.  These are defined as
   follows:
 
-\code{g.even(x,y)=(xy+yx)/2}
-
-\code{g.odd(x,y)=(xy-yx)/2}
-
-\code{e.even(x,y)=(x'y+y'x)/2} 
-
-\code{e.odd(x,y)=(x'y-y'x)/2}
-
+  \itemize{
+    \item \code{g.even(x,y)=(xy+yx)/2}
+    \item \code{g.odd(x,y)=(xy-yx)/2}
+    \item \code{e.even(x,y)=(x'y+y'x)/2} 
+    \item \code{e.odd(x,y)=(x'y-y'x)/2}
+  }
+  
 These functions have an equivalent binary operator.
 
 The Grassman operators have a \dQuote{\code{*}}; they are

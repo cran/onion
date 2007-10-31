@@ -46,7 +46,6 @@ f <- function(...){
   stopifnot(Hi + Hj + Hk == Him)
   stopifnot(H1 + Hi + Hj + Hk == Hall)
 
-
   ## And some quaternion subtractions:
   stopifnot(Hi - Hi == H0)
   stopifnot(Hall - Hi - Hj - Hk == H1)
@@ -148,7 +147,6 @@ f <- function(...){
   stopifnot(Ojl*O0 == O0)
   stopifnot(Okl*O0 == O0)
 
-
   ## And some octonion additions:
   stopifnot(O1 + Oim == Oall)
   stopifnot(Oi + Oj + Ok + Ol + Oil + Ojl + Okl == Oim)
@@ -157,7 +155,6 @@ f <- function(...){
   ## And some subtractions:
   stopifnot(Oil - Oil == O0)
   stopifnot(Oall - Oim == O1)
-
   
   ## Dummy return value:
   return(TRUE)
@@ -175,16 +172,14 @@ g <- function(...){
   ## And distributivity:
   test(x*(y+z) - (x*y+x*z)) 
 
-  ## And power associativity of the octonions:
+  ## And *power* associativity of the octonions:
   jj1 <- x + Oil*y + Oj*z
   test( jj1*(jj1*jj1) - (jj1*jj1)*jj1) 
-
-  
+ 
   ## And distributivity of octonions:
   jj2 <- as.octonion(pi+1:8,single=TRUE)
   jj3 <- as.octonion(1.123^(1:8) ,single=TRUE)
   test(jj1*(jj2+jj3) - (jj1*jj2+jj1*jj3))
-
 
   ## And alternativity of octonions:
   test(jj1*(jj1*jj2) - (jj1*jj1)*jj2 )
@@ -215,3 +210,52 @@ jj.F <- associator(x,y,z)
 test(jj.T-jj.F)
 
 
+
+# Now some randomish checks that verify vectorized addition:
+
+
+h <- function(a){
+  test(a-a)
+  test(a + (-1)*a)
+  test((-1)*a + a)
+
+  test( (a+a  )-2*a)
+  test( (a+a  )-a*2)
+  test( (a+a+a)-3*a)
+  test( (a+a+a)-a*3)
+
+  test(a+1-a-1)
+
+  test(a+a[1]-a-a[1])
+  
+  test(a/a - 1)
+  test(a^2/a - a)
+  test(a^3/a^2 - a)
+  test(a^4/a^2 - a^2)
+
+  test( (a+a)/a - 2)
+  test( (a+a)/(a*a) - 2/a)
+
+  test(a*a       - a^2)
+  test(a*a*a     - a^3)    #recall that octonions are *power* associative
+  test(a*a*a*a   - a^4)
+
+  test(1/a - a^(-1))
+  test(1/a^2 - a^(-2))
+
+  test(1/(a^2) - (1/a)^2)
+  test(1/(a^3) - (1/a)^3)
+
+  test( (a/a[1])*a[1] - a)
+  
+  if(is.quaternion(a)){
+    test(associator(a,a+1,a+Hi))
+  } else if (is.octonion(a)){
+    test(associator(a*(3*Ok+4*Oil),a*(Ok+Oil),a*(Ok+2*Oil))) 
+  } else {
+    stop("a must be quaternion or octonion")
+  } 
+}
+
+h(as.octonion(matrix(1:5,nrow=8,ncol=10)))
+h(as.quaternion(matrix(1:5,nrow=4,ncol=20)))

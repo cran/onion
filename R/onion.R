@@ -413,7 +413,7 @@ t(as.matrix(H*as.quaternion(t(cbind(0,x)))/H))[,-1]
   if(length(A)<length(B)){
     return(Recall(B,A))
   }
-  out <- sweep(as.matrix(A), 1, as.matrix(B), "+")
+  out <- as.matrix(A) + as.matrix(B)
   return(as.onion(out,type=jj$type,names=jj$names))
 }
 

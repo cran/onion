@@ -1,6 +1,6 @@
 Package: onion
-Version: 1.1-1
-Date: 07-02-2005
+Version: 1.1-2
+Date: 31-10-2007
 Title: octonions and quaternions
 Author: Robin K. S. Hankin
 Description: 
@@ -8,4 +8,4 @@ Description:
   octonions.
 Maintainer: Robin K. S. Hankin <r.hankin@noc.soton.ac.uk>
 License: GPL
-Packaged: Wed Oct  3 21:23:44 2007; rksh
+Packaged: Wed Oct 31 22:55:15 2007; rksh
