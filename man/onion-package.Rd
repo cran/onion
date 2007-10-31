@@ -28,7 +28,7 @@ Package currently S3 but will use S4 methods shortly
 \author{
 Robin K. S. Hankin
 
-Maintainer: r.hankin@noc.soton.ac.uk
+Maintainer: hankin.robin@gmail.com
 }
 \references{
 R News article

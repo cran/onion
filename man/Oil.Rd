@@ -17,7 +17,6 @@
 \alias{Okl}
 \alias{Oim}
 \alias{Oall}
-\alias{Oim}
 \docType{data}
 \title{Unit onions}
 \description{
