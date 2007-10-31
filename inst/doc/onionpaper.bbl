@@ -1,0 +1,34 @@
+\begin{thebibliography}{4}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Baez(2001)}]{baez2001}
+Baez JC (2001).
+\newblock \enquote{The octonions.}
+\newblock \emph{Bulletin of the American Mathematical Society}, \textbf{39}(5),
+  145--205.
+
+\bibitem[{Hankin(2006)}]{hankin2006}
+Hankin RKS (2006).
+\newblock \enquote{Normed division algebras in \proglang{R}: introducing
+  theonion package.}
+\newblock \emph{\proglang{R} News}, \textbf{6}(2), 49--52.
+
+\bibitem[{{\proglang{R} Development Core Team}(2008)}]{R}
+{\proglang{R} Development Core Team} (2008).
+\newblock \emph{\proglang{R}: A Language and Environment for Statistical
+  Computing}.
+\newblock \proglang{R} Foundation for Statistical Computing, Vienna, Austria.
+\newblock {ISBN} 3-900051-07-0, \urlprefix\url{http://www.R-project.org}.
+
+\bibitem[{Turk(2005)}]{turk2005}
+Turk G (2005).
+\newblock \enquote{The Stanford Bunny.}
+\newblock Stanford University Computer Graphics Laboratory, {\tt
+  http://graphics.stanford.edu/data/3Dscanrep/}.
+
+\end{thebibliography}
