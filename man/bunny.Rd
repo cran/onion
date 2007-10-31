@@ -16,6 +16,6 @@ surface of the bunny.
 }
 \examples{
 data(bunny)
-p3d(bunny)
+p3d(rotate(bunny,Hk))
 }
 \keyword{datasets}

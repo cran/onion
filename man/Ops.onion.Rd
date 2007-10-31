@@ -36,15 +36,14 @@ Amassage(A, B)
 harmonize(A, B)
 }
 \arguments{
-  \item{e1,e2}{An object of class 'dQuote{\code{onion}}}
-  \item{A,B}{An object of class \dQuote{\code{onion}}}
+  \item{e1,e2, A, B}{Objects of class \dQuote{\code{onion}}}
   \item{oct1,oct2}{Octonionic vectors}
   \item{quat1,quat2}{Quaternionic vectors}
   \item{scalar}{Scalar vector}
-  \item{ur}{In function \code{AprodA()},  Boolean with default
+  \item{ur}{In function \code{AprodA()}, Boolean with default
     \code{FALSE} meaning to use the \code{c} implementation; and
     \code{TRUE} meaning to use the interpreted \code{R} function.  See
-    details section.}
+    details section}
 }
 \details{
   The function \code{Ops.onion()} passes unary and binary arithmetic

@@ -8,18 +8,18 @@
 
 %% just as usual
 \author{Robin K. S. Hankin\\University of Cambridge}
-\title{Normed division algebras with \proglang{R}: introducing the ``onion'' package}
-%\VignetteIndexEntry{The Onion package}
+\title{Normed division algebras with \proglang{R}: introducing the \pkg{onion} package}
+%\VignetteIndexEntry{The onion package}
 
 %% for pretty printing and a nice hypersummary also set:
 \Plainauthor{Robin K. S. Hankin}
-\Plaintitle{The Onion package}
-\Shorttitle{The Onion package}
+\Plaintitle{The onion package}
+\Shorttitle{The onion package}
 
 %% an abstract and keywords
 \Abstract{
-
-  This vignette is based on~\cite{hankin2006}.
+  This vignette is based on~\cite{Rnews:Hankin:a:2006} and corrects an
+  algebraic error therein.
 
   This vignette introduces the \pkg{onion} package of \proglang{R}
   routines, for manipulation of quaternions and octonions.  A simple
@@ -42,7 +42,7 @@
 %% in the following format:
 \Address{
   Robin K. S. Hankin\\
-  The University of Cambridge\\
+  University of Cambridge\\
   19 Silver Street
   Cambridge CB3 9EP
   United Kingdom\\
@@ -74,7 +74,6 @@
 \newcommand{\bv}{\mathbf v}
 
 
-
 \section{Preface}
 
 An \emph{algebra} is a vector space~$V$ over a field (here the real
@@ -100,7 +99,7 @@ quaternions ($\mathbbm{H}$) and the octonions ($\mathbbm{O}$); the
 generic term is ``onion'', although the term includes other algebras
 such as the sedenions.
 
-The \proglang{R} computer language~\cite{R} is well-equipped to deal
+The \proglang{R} computer language~\citep{R} is well-equipped to deal
 with the first two: here, I introduce the \pkg{onion} package that
 provides some functionality for the quaternions and the octonions, and
 illustrate these interesting algebras using numerical examples.
@@ -139,10 +138,9 @@ such operations were consistent, let alone worth studying.
 \subsection{The octonions}
 The fourth and final normed division algebra is that of the octonions.
 These were discovered around 1844 and are an eight-dimensional algebra
-over the reals.  The full multiplication table is given by
-Baez~\cite{baez2001}.
+over the reals.  The full multiplication table is given by~\citet{baez2001}.
 
-\section{Package onion in use}
+\section[Package onion in use]{Package \pkg{onion} in use}
 
 A good place to start is function \code{rquat()}, which returns a
 quaternionic vector of a specified length, whose elements are random
@@ -250,7 +248,7 @@ to produce figure~\ref{bunny.rotate}.
      p3d(rotate(bunny,H1-Hj),box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=1-i")
      p3d(rotate(bunny,Hall) ,box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=1+i+j+k")
 @
-\caption{The Stanford Bunny~\cite{turk2005}\label{bunny.rotate} in various rotations,
+\caption{The Stanford Bunny~\citep{turk2005}\label{bunny.rotate} in various rotations,
   plotted using \code{p3d()}.  Depth cue is via progressive greying
   out of points further from the eye, as though viewed through a mist}
   \end{center}
@@ -258,7 +256,6 @@ to produce figure~\ref{bunny.rotate}.
 
 Translating between quaternionic rotation and (say) the equivalent
 orthogonal matrix is straightforward.
-
 
 \section{Conclusions}
 
@@ -269,16 +266,16 @@ a brief illustration of their use in this context.
 
 Octonions' applicability to physics is currently unclear, but a steady
 trickle of papers has appeared in which the octonions are shown to be
-related to spinor geometry and quantum mechanics (see
-Baez~\cite{baez2001} and references therein).  Reading the literature,
-one cannot help feeling that octonions will eventually reveal some
-deep physical truth.  When this happens, the \pkg{onion} package
-ensures that \proglang{R} will be ready to play its part.
+related to spinor geometry and quantum mechanics (see~\citet{baez2001}
+and references therein).  Reading the literature, one cannot help
+feeling that octonions will eventually reveal some deep physical
+truth.  When this happens, the \pkg{onion} package ensures that
+\proglang{R} will be ready to play its part.
 
 
 \subsubsection*{Acknowledgments}
 I would like to acknowledge the many stimulating and helpful comments
-made by the R-help list over the years.
+made by the \proglang{R}-help list over the years.
 
-\bibliography{onion}
+\bibliography{onionpaper}
 \end{document}
