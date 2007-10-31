@@ -20,7 +20,7 @@
   such as addition, multiplication, division, integer powers, etc.
 }
 \usage{
-Ops.onion(e1, e2)
+\method{Ops}{onion}(e1, e2)
 OprodO(oct1, oct2)
 HprodH(quat1, quat2)
 R_OprodO(oct1, oct2)
