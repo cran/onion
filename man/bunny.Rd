@@ -12,7 +12,7 @@ coordinates of a point on the
 surface of the bunny.
 }
 \source{
-\url{http://www-graphics.stanford.edu}
+  \url{http://graphics.stanford.edu/data/3Dscanrep/}
 }
 \examples{
 data(bunny)

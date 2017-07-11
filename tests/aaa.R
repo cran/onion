@@ -259,3 +259,16 @@ h <- function(a){
 
 h(as.octonion(matrix(1:5,nrow=8,ncol=10)))
 h(as.quaternion(matrix(1:5,nrow=4,ncol=20)))
+
+ ## tests for a correct bugfix to a bug spotted (and patched!) by Adam
+ ## Muschielok.
+
+x <- rquat(3)
+x <- Conj(x)
+x <- 1/x
+
+x <- roct(7)
+x <- Conj(x)
+x <- 1/x
+         
+

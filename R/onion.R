@@ -814,7 +814,10 @@ return(as.onion(out,type(x)))
 "Im<-.octonion" <- function(x,value){
   nx <- names(x)
   x <- as.matrix(x)
-  if(isTRUE(all.equal(nrow(value), 7)) || isTRUE(all.equal(length(value),7))) {
+  if(
+      !is.octonion(value)  &&
+      (isTRUE(all.equal(nrow(value), 7)) || isTRUE(all.equal(length(value),7)))
+  ){
     x[-1,] <- value
   } else if (is.octonion(value)){
     if(max(Mod(Re(value)))>0){
@@ -841,7 +844,11 @@ return(as.onion(out,type(x)))
 "Im<-.quaternion" <- function(x,value){
   nx <- names(x)
   x <- as.matrix(x)
-  if(isTRUE(all.equal(nrow(value), 3)) || isTRUE(all.equal(length(value),3))) {
+  if(
+      !is.quaternion(value)             && 
+      (isTRUE(all.equal(nrow(value), 3)) ||
+      isTRUE(all.equal(length(value),3)))
+  ){
     x[-1,] <- value
   } else if (is.quaternion(value)){
     if(max(Mod(Re(value)))>0){

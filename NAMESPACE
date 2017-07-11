@@ -20,6 +20,7 @@ S3method(as.matrix, onion)
 S3method("[", onion)
 S3method("[<-", onion)
 S3method(names, onion)
+S3method("names<-", onion)
 S3method(condense, onion)
 S3method(c, onion)
 S3method(t, onion)
@@ -32,6 +33,11 @@ S3method(seq, onion)
 S3method(length, onion)
 S3method("length<-", onion)
 S3method(plot, onion)
+S3method(rep,onion)
+S3method(sign,onion)
+S3method(sqrt,onion)
+S3method(get.comp,onion)
+S3method(Ops,onion)
 
 S3method("Re<-", quaternion)
 S3method("Im<-", quaternion)
@@ -82,5 +88,6 @@ S3method("%>.<%", onion)
 
 
 
-
-
+importFrom("grDevices", "hsv")
+importFrom("graphics", "persp", "plot", "points")
+importFrom("stats", "rbinom", "rnorm", "rpois", "runif")

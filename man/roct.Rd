@@ -12,13 +12,13 @@ rquat(n, x=1:4, replace=TRUE, rand="sample", ...)
 \arguments{
   \item{n}{Length of onionic vector returned}
   \item{x}{Argument \code{x} as passed to \code{sample()};
-    Only matters if \code{rand} takes its default value of
+    only matters if \code{rand} takes its default value of
     \dQuote{\code{sample}}.}
   \item{replace}{Argument \code{replace} as passed to \code{sample()};
-    Only matters if \code{rand} takes its default value of
+    only matters if \code{rand} takes its default value of
     \dQuote{\code{sample}}.}
   \item{rand}{String, with name being that of the distribution
-    intended.   Currently implemented values are \dQuote{sample}
+    intended.  Currently implemented values are \dQuote{sample}
     (default), \dQuote{norm}, \dQuote{unif}, \dQuote{binom} and
     \dQuote{pois}.  Add an \dQuote{r} to get the name of the function
     used; thus \dQuote{unif} means to call \code{runif()}.}

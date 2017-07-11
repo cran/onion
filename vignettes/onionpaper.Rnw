@@ -7,7 +7,7 @@
 \usepackage{wasysym}
 
 %% just as usual
-\author{Robin K. S. Hankin\\University of Cambridge}
+\author{Robin K. S. Hankin\\Auckland University of Technology}
 \title{Normed division algebras with \proglang{R}: introducing the \pkg{onion} package}
 %\VignetteIndexEntry{The onion package}
 
@@ -42,10 +42,8 @@
 %% in the following format:
 \Address{
   Robin K. S. Hankin\\
-  University of Cambridge\\
-  19 Silver Street
-  Cambridge CB3 9EP
-  United Kingdom\\
+  Auckland University of Technology\\
+  New Zealand\\
   E-mail: \email{hankin.robin@gmail.com}
 }
 %% It is also possible to add a telephone and fax number
@@ -248,9 +246,11 @@ to produce figure~\ref{bunny.rotate}.
      p3d(rotate(bunny,H1-Hj),box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=1-i")
      p3d(rotate(bunny,Hall) ,box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=1+i+j+k")
 @
-\caption{The Stanford Bunny~\citep{turk2005}\label{bunny.rotate} in various rotations,
-  plotted using \code{p3d()}.  Depth cue is via progressive greying
-  out of points further from the eye, as though viewed through a mist}
+\caption{The Stanford Bunny~\citep{turk2005}\label{bunny.rotate} in
+  various rotations, plotted using \code{p3d()}; in the package, 3D
+  rotation is carried out by function \code{rotate()}.  Depth cue is
+  via progressive greying out of points further from the eye, as
+  though viewed through a mist}
   \end{center}
 \end{figure}
 
