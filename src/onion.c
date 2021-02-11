@@ -1,5 +1,5 @@
 /*basic octonion product: multiplies two octonions */
-static void oct_prod_single(double *x, double *y, double *out)
+static void oct_prod_single(const double *x, const double *y, double *out)
 {
 /*Re */	out[0] = +x[0]*y[0] -x[1]*y[1] -x[2]*y[2] -x[3]*y[3] -x[4]*y[4] -x[5]*y[5] -x[6]*y[6] -x[7]*y[7];
 /*Oi */	out[1] = +x[1]*y[0] +x[0]*y[1] -x[3]*y[2] +x[2]*y[3] -x[5]*y[4] +x[4]*y[5] +x[7]*y[6] -x[6]*y[7];
@@ -14,7 +14,7 @@ static void oct_prod_single(double *x, double *y, double *out)
 /* vectorized version: takes two arrays of length a multiple of 8 and interprets them
 as octonions one after the other.
 */
-void octonion_prod(double *x, double *y, int *n, double *out)
+void octonion_prod(const double *x, const double *y, const int *n, double *out)
 {
 	int i;
 	const int nn = (*n);
@@ -25,7 +25,7 @@ void octonion_prod(double *x, double *y, int *n, double *out)
 
  
 /*basic quaternion product: multiplies two quaternions */
-static void quat_prod_single(double *x, double *y, double *out)
+static void quat_prod_single(const double *x, const double *y, double *out)
 {
 	out[0] = +x[0]*y[0] -x[1]*y[1] -x[2]*y[2] -x[3]*y[3];
 	out[1] = +x[1]*y[0] +x[0]*y[1] -x[3]*y[2] +x[2]*y[3];
@@ -36,7 +36,7 @@ static void quat_prod_single(double *x, double *y, double *out)
 /* vectorized version: takes two arrays of length a multiple of 4 and interprets them
 as quaternions one after the other.
 */
-void quaternion_prod(double *x, double *y, int *n, double *out)
+void quaternion_prod(const double *x, const double *y, const int *n, double *out)
 {
 	int i;
 	const int nn = (*n);

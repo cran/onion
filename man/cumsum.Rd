@@ -1,18 +1,27 @@
-\name{cumsum.onion}
-\alias{cumsum.onion}
-\title{Cumulative sums for onions}
+\name{cumsum}
+\alias{cumsum}
+\alias{onion_cumsum}
+\alias{onion_cumprod}
+\title{Cumulative sums and products of onions}
 \description{
-  Cumulative sum of an onionic vector
+Cumulative sums and products of onions
 }
 \usage{
-\method{cumsum}{onion}(x)
+onion_cumsum(x)
+onion_cumprod(x)
 }
-\arguments{
-  \item{x}{Onionic vector}
-}
+\arguments{\item{x}{onion}}
+\value{An onion}
 \author{Robin K. S. Hankin}
+\note{
+The octonions are nonassociative but \code{cumprod()} operates
+left-associatively, as in \code{((a[1]*a[2])*a[3])*a[4]} etc. 
+}
 \examples{
-a <- roct(7)
-cumsum(a)
+
+cumsum(as.quaternion(matrix(runif(20),4,5)))
+cumsum(roct(5))
+
+cumprod(rquat(7))
 }
 \keyword{array}

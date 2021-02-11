@@ -41,9 +41,8 @@ O0
 Oim
 Oall
 }
-\format{
-Each one is an onionic vector of length one.
-}
+\format{Each one is an onionic vector of length one.}
+\value{A length-one onion, either a quaternion or an octonion}
 \details{
 Try \code{Hi} (=\code{quaternion(i=1)}) to get the pattern for the first
 four.  The next ones are the zero quaternion, the pure imaginary
@@ -55,10 +54,10 @@ These are just variables that may be overwritten and thus resemble
 }
 \examples{
 Oall
-seq(from=O1,to=Oil,len=6)
+seq_onion(from=O1,to=Oil,len=6)
 
 stopifnot(Hj*Hk ==  Hi)
-stopifnot(Okl*Oil == -Oj )  # See tests/aaa.R for the full set
+stopifnot(Okl*Oil == -Oj )  # See tests/test_aaa.R for the full set
 
 }
 \keyword{datasets}

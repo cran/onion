@@ -11,8 +11,9 @@ A three column matrix with 35947 rows.  Each row is the Cartesian
 coordinates of a point on the
 surface of the bunny.
 }
+\value{as for format}
 \source{
-  \url{http://graphics.stanford.edu/data/3Dscanrep/}
+  \url{https://graphics.stanford.edu/data/3Dscanrep/}
 }
 \examples{
 data(bunny)

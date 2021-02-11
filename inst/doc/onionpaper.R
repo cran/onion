@@ -69,7 +69,13 @@ Mod(log(x*y)-log(x)-log(y))
 
 
 ###################################################
-### code chunk number 11: figplotter
+### code chunk number 11: wp_figure_file
+###################################################
+png("wp_figure.png",width=800,height=800)
+
+
+###################################################
+### code chunk number 12: wp_figure_plot
 ###################################################
      data(bunny)
      par(mfrow=c(2,2))
@@ -78,5 +84,11 @@ Mod(log(x*y)-log(x)-log(y))
      p3d(rotate(bunny,Hi)   ,box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=i")
      p3d(rotate(bunny,H1-Hj),box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=1-i")
      p3d(rotate(bunny,Hall) ,box=FALSE,d0=0.4,r=1e6,h=NULL,pch=16,cex=0.3,theta=0,phi=90,main="z=1+i+j+k")
+
+
+###################################################
+### code chunk number 13: wp_figure_close
+###################################################
+null <- dev.off()
 
 
