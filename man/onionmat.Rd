@@ -23,8 +23,6 @@
 \alias{getM}
 \alias{getd}
 \alias{herm_onion_mat}
-\alias{drop}
-\alias{drop,onionmat-method}
 \alias{matrix,onion-method}
 \alias{ncol-methods}
 \alias{ncol,ANY-method}
@@ -162,7 +160,6 @@ matrix_arith_onion(e1,e2)
 onion_arith_matrix(e1,e2)
 matrix_plus_onion(e1,e2)
 matrix_prod_onion(e1,e2)
-drop(x)
 \S4method{cprod}{onionmat,onionmat}(x,y)
 \S4method{cprod}{onionmat,missing}(x,y)
 \S4method{cprod}{onionmat,ANY}(x,y)
@@ -208,13 +205,17 @@ onionmat_matrixprod_onion(x,y)
 \details{
 
   An object of class \code{onionmat} is a two-element list, the first of
-  which is an onion, and the second an integer matrix used for tracking
-  attributes such as dimensions and dimnames.  This device makes the
-  extraction and replacement methods easy.  
+  which is an onion, and the second an index matrix of integers used for
+  tracking attributes such as dimensions and dimnames.  This device
+  makes the extraction and replacement methods easy.  Use \code{getM()}
+  to access the index matrix and \code{getd()} to access the onionic
+  vector.
 
   The S4 method for \code{matrix()} simply dispatches to
   \code{onionmat()}, which is a drop-in replacement for \code{matrix()}.
 
+  Function \code{drop()} has a method for \code{onionmat} objects.
+  
   Function \code{newonionmat()} is lower-level: it also creates onionmat
   objects, but takes two arguments: an onion and a matrix; the matrix
   argument can be used to specify additional attributes via
@@ -225,6 +226,10 @@ onionmat_matrixprod_onion(x,y)
 
   Vignette \code{onionmat} shows some use-cases.
 
+  The print method for \code{onionmat} objects is sensitive to option
+  \code{show_onionmats_in_place}.  If \code{TRUE}, it prints the matrix
+  elements in-place, using \code{onion_to_string()}.  It works best when
+  option \code{show_onions_compactly} is effective.
 }
 \author{Robin K. S. Hankin}
 \examples{
@@ -238,5 +243,12 @@ Re(M)
 Re(M) <- 0.3
 
 romat() \%*\% rquat(6)
+
+a <- rsomat()
+a            # default
+options("show_onionmats_in_place" = TRUE)
+a
+options("show_onionmats_in_place" = FALSE) # restore default
+
 
 }

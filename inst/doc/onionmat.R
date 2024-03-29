@@ -1,6 +1,11 @@
 ## ----setup, include=FALSE-----------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
-library("onion") 
+options(rmarkdown.html_vignette.check_title = FALSE)
+library("onion")
+set.seed(1)
+
+## ----out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE----
+knitr::include_graphics(system.file("help/figures/onion.png", package = "onion"))
 
 ## -----------------------------------------------------------------------------
 set.seed(0)
@@ -61,7 +66,7 @@ max(Mod(Im(x+t(x))))
 
 ## -----------------------------------------------------------------------------
 x <- cprod(matrix(roct(12),4,3))
-y <- cprod(matrix(roct(12),4,3))
+y <- cprod(matrix(roct(12),4,3)) # x and y are 3-by-3 Hermitian octonionic matrices
 
 ## -----------------------------------------------------------------------------
 jj <- x %o% y
@@ -71,4 +76,17 @@ max(Mod(Im(jj+t(jj))))
 LHS <- (x %o% y) %o% (x %o% x)
 RHS <- x %o% (y %o% (x %o% x))
 max(Mod(LHS-RHS))  # zero to numerical precision
+
+## -----------------------------------------------------------------------------
+x <- cprod(matrix(roct(16),4,4))
+y <- cprod(matrix(roct(16),4,4)) # x and y are 4-by-4 Hermitian octonionic matrices
+LHS <- (x %o% y) %o% (x %o% x)
+RHS <- x %o% (y %o% (x %o% x))
+max(Mod(LHS-RHS))  # miles off
+
+## -----------------------------------------------------------------------------
+o <- rsomat()
+o
+options(show_onionmats_in_place = TRUE)
+o
 

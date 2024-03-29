@@ -7,7 +7,7 @@
 
 
 ###################################################
-### code chunk number 2: onionpaper.Rnw:148-149
+### code chunk number 2: onionpaper.Rnw:156-157
 ###################################################
 require(onion)
 

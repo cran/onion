@@ -68,6 +68,17 @@ romat <- function(type="quaternion",nrow=5, ncol=6, ...){
   return(out)
 }
 
+rsomat  <- function(type="quaternion",nrow=5, ncol=6, ...){
+  out <- romat(type=type,nrow=nrow,ncol=ncol, ...)
+  jj <- switch(type,
+              octonion = rsoct(nrow*ncol,...),
+              rsquat(nrow*ncol,...)  # quaternion
+              )
+  out[] <- jj
+  return(out)
+}
+
+
 setGeneric("nrow")
 setGeneric("ncol")
 setMethod("nrow","onionmat",function(x){nrow(getM(x))})
@@ -143,7 +154,7 @@ setMethod("diag",signature(x="onion"),
          "*" = onionmat_prod_onionmat(e1, e2),
          "/" = onionmat_prod_onionmat(e1, onionmat_inverse(e2)),
          "^" = onionmat_power_onionmat(e1, e2),
-         stop(paste("binary operator \"", .Generic, "\" not defined for onions"))
+         stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
          )
 }
 
@@ -154,7 +165,7 @@ setMethod("diag",signature(x="onion"),
          "*" = onionmat_prod_matrix(e1, e2),
          "/" = onionmat_prod_matrix(e1, 1/e2),
          "^" = onionmat_power_matrix(e1, e2),
-         stop(paste("binary operator \"", .Generic, "\" not defined for onions"))
+         stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
          )
 }
 
@@ -165,7 +176,7 @@ setMethod("diag",signature(x="onion"),
          "*" = onionmat_prod_matrix(e2, e1),
          "/" = onionmat_prod_matrix(1/e2, e1),
          "^" = onionmat_power_onionmat(e2, e1),
-         stop(paste("binary operator \"", .Generic, "\" not defined for onions"))
+         stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
          )
 }
 
@@ -176,7 +187,7 @@ setMethod("diag",signature(x="onion"),
          "*" = onionmat_prod_single(e1,   e2),
          "/" = onionmat_prod_single(e1, 1/e2),
          "^" = onionmat_power_single(e1,  e2),
-         stop(paste("binary operator \"", .Generic, "\" not defined for onions"))
+         stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
          )
 }
 
@@ -187,7 +198,7 @@ setMethod("diag",signature(x="onion"),
          "*" = single_prod_onionmat(e1, e2),  
          "/" = single_prod_onionmat(e1, onionmat_inverse(e2)),
          "^" = single_power_onionmat(e1, e2),
-         stop(paste("binary operator \"", .Generic, "\" not defined for onions"))
+         stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
          )
 }
 
@@ -199,7 +210,7 @@ setMethod("diag",signature(x="onion"),
            "*" = matrix_prod_onion(e1,  e2),
            "/" = matrix_prod_onion(e1,1/e2),
            "^" = onionmat_power_onionmat(e1,e2),
-           stop(paste("binary operator \"", .Generic, "\" not defined for matrix . onion"))
+           stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
            )
 }
 
@@ -211,7 +222,7 @@ setMethod("diag",signature(x="onion"),
            "*" = matrix_prod_onion(e2,  e1),      # e1*e2
            "/" = matrix_prod_onion(1/e2,e1), # e1/e2
            "^" = onion_power_matrix(e1,e2),
-           stop(paste("binary operator \"", .Generic, "\" not defined for matrix . onion"))
+           stop(gettextf("binary operator %s not defined for onionmats", dQuote(.Generic)))
            )
 }
 
@@ -303,9 +314,16 @@ setMethod("t","onionmat",function(x){ # NB1: this  ensures that emulator::ht() w
 setMethod("show", "onionmat", function(object){onionmat_show(object)})
 
 `onionmat_show` <- function(object,...){
-  print(getd(object))
-  print(getM(object))
-  return(object)
+  if(isTRUE(getOption("show_onionmats_in_place"))){
+    out <- onion_to_string(getd(object))
+    attributes(out) <- attributes(getM(object))
+    print(noquote(out))
+    return(invisible(out))
+  } else {
+    print(getd(object))
+    print(getM(object))
+    return(object)
+  }
 }
 
 setGeneric("cprod",function(x,y){standardGeneric("cprod")})

@@ -1,27 +1,36 @@
 ---
-title: "Onionic matrices"
+title: "Matrices with quaternion or octonion entries: class `onionmat` in the `onion` package"
 author: "Robin K. S. Hankin"
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+output: html_vignette
+bibliography: onionpaper.bib
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{involutions}
+  %\VignetteIndexEntry{onionmat}
   %\usepackage[utf8]{inputenc}
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library("onion") 
+options(rmarkdown.html_vignette.check_title = FALSE)
+library("onion")
+set.seed(1)
 ```
 
-## Onionic matrices 
+```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
+knitr::include_graphics(system.file("help/figures/onion.png", package = "onion"))
+```
 
-The onion package allows one to define and manipulate matrices whose
-elements are quaternions or octonions.  Function `romat()` creates a
-simple `onionmat` object:
+## Introduction
+
+To cite the `onion` package in publications please use
+@hankin2006_onion.  This short document shows how matrices with
+octonion or quaternion entries may be created and manipulated with the
+`onionmat` class of the `onion` R package.
+
+## `onionmat` objects
+
+A good place to start is function `romat()`, which creates a simple
+`onionmat` object:
 
 ```{r}
 set.seed(0)
@@ -31,12 +40,12 @@ romat()
 
 This illustrates many features of the package.  An `onionmat` object
 has two slots.  The first slot, `x`, is an onion [a vector of
-quaternions or octonions] and the second, `M`, a matrix, which is used
-to store attributes such as dimensions and dimnames.  The elements of
-`M` and `d` are in bijective correspondence; thus element `[b,AR]` is
-number 17 and this is seen to be approximately $-0.81 + 0.24i -1.43j
-+0.37k$.  Most R idiom will work with such objects, here is a brief
-sample.
+quaternions or octonions] and the second, `M`, an integer matrix
+which is used to store attributes such as dimensions and dimnames.
+The elements of `M` and `d` are in bijective correspondence; thus
+element `[b,AR]` is number 17 and this is seen to be approximately
+$-0.81 + 0.24i -1.43j +0.37k$.  Most R idiom will work with such
+objects, here is a brief sample.
 
 ```{r}
 A <- matrix(rquat(21),7,3)  # matrix() calls onion::onionmat()
@@ -116,8 +125,9 @@ tcprod(A) - A %*% ht(A)
 
 ## Octonions
 
-Consider the following $3\times 3$ octonionic matrices:
-
+Here I consider $3\times 3$ Hermitian octonionic matrices which are
+known be a special case of a Jordan algebra (see the `jordan` package
+for more systematic Jordan algebra R functionality).
 
 ```{r}
 x <- cprod(matrix(roct(12),4,3))
@@ -144,9 +154,10 @@ First we define the Jordan product:
 ```
 
 then create a couple of random Hermitian octonionic matrices:
+
 ```{r}
 x <- cprod(matrix(roct(12),4,3))
-y <- cprod(matrix(roct(12),4,3))
+y <- cprod(matrix(roct(12),4,3)) # x and y are 3-by-3 Hermitian octonionic matrices
 ```
 
 We first verify numerically that the Jordan product of two Hermitian
@@ -166,4 +177,28 @@ max(Mod(LHS-RHS))  # zero to numerical precision
 ```
 
 showing that the Jordan identity is satisfied, up to a small numerical
-tolerance.
+tolerance.  However, $4\times 4$ octonionic matrices do not satisfy
+the Jordan identity:
+
+```{r}
+x <- cprod(matrix(roct(16),4,4))
+y <- cprod(matrix(roct(16),4,4)) # x and y are 4-by-4 Hermitian octonionic matrices
+LHS <- (x %o% y) %o% (x %o% x)
+RHS <- x %o% (y %o% (x %o% x))
+max(Mod(LHS-RHS))  # miles off
+```
+
+
+## Note on the print method
+
+Above we have been using the default print method but it is possible
+to use a more compact notation, which is useful if a matrix has many
+short entries.
+
+
+```{r}
+o <- rsomat()
+o
+options(show_onionmats_in_place = TRUE)
+o
+```

@@ -1,5 +1,5 @@
 Package: onion
-Version: 1.5-0
+Version: 1.5-3
 Title: Octonions and Quaternions
 LazyData: TRUE
 Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415"))
@@ -13,13 +13,14 @@ Description:
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
 License: GPL-2
 Depends: methods, R (>= 3.5.0)
-Suggests: testthat,knitr,rmarkdown
+Suggests: testthat,knitr,rmarkdown,covr
 VignetteBuilder: knitr
-Imports: emulator
+Imports: emulator, Matrix, freealg (>= 1.0-4), mathjaxr
 URL: https://github.com/RobinHankin/onion
 BugReports: https://github.com/RobinHankin/onion/issues
+RdMacros: mathjaxr
 NeedsCompilation: yes
-Packaged: 2021-02-11 01:14:49 UTC; rhankin
+Packaged: 2024-03-29 10:01:31 UTC; rhankin
 Author: Robin K. S. Hankin [aut, cre] (<https://orcid.org/0000-0001-5982-0415>)
 Repository: CRAN
-Date/Publication: 2021-02-11 07:00:02 UTC
+Date/Publication: 2024-03-29 11:40:02 UTC
